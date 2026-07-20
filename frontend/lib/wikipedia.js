@@ -2,7 +2,7 @@ async function fetchSummary(title) {
   try {
     const res = await fetch(
       `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, "_"))}`,
-      { cache: "no-store" }
+      { next: { revalidate: 86400 } }
     );
     if (!res.ok) return null;
     const data = await res.json();
@@ -17,7 +17,7 @@ async function searchFallback(query) {
   try {
     const res = await fetch(
       `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`,
-      { cache: "no-store" }
+      { next: { revalidate: 86400 } }
     );
     if (!res.ok) return null;
     const data = await res.json();
@@ -37,7 +37,7 @@ export async function getWikipediaFullExtract(title) {
   try {
     const res = await fetch(
       `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=true&titles=${encodeURIComponent(title)}&format=json&origin=*`,
-      { cache: "no-store" }
+      { next: { revalidate: 86400 } }
     );
     if (!res.ok) return null;
     const data = await res.json();

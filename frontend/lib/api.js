@@ -3,7 +3,7 @@ export const API_BASE =
 
 async function safeFetch(url, fallback) {
   try {
-    const res = await fetch(url, { cache: "no-store" });
+    const res = await fetch(url, { next: { revalidate: 30 } });
     if (!res.ok) return fallback;
     return await res.json();
   } catch {
