@@ -1,29 +1,35 @@
-# The Heritage of Indian Cinema — Phases 1–3
+# Chalchitra Museum (चलचित्र संग्रहालय)
+### A Digital Museum of Indian Cinema — 1913 to Present
 
-## What's built
-- **Phase 1 (Backend):** FastAPI + SQLAlchemy + SQLite. Models: Movie, Person, many-to-many cast/crew.
-- **Phase 2 (Frontend):** Plain HTML/CSS/JS (no build step needed). Heritage museum theme — maroon/gold/ivory, serif typography. Home, Movie list, Movie detail pages.
-- **Phase 3 (Search & Data):** /api/search, language/era filters, seed script with 9 real sample movies spanning Silent Era → OTT Revolution.
+Chalchitra Museum is a full-stack digital archive celebrating over a century of
+Indian filmmaking — from Dadasaheb Phalke's silent-era debut to the OTT
+revolution. It combines a curated 150-film canon across Hindi, Kannada,
+Bengali, and Telugu cinema with real, live-fetched context from TMDb and
+Wikipedia, presented through a themed, museum-inspired interface rather than
+a typical movie database UI.
 
-## Run it
+---
 
+## Tech Stack
 
-cd backend
-pip install -r requirements.txt
-python seed.py          # creates cinema.db with sample movies
-uvicorn main:app --reload --port 8000
+**Frontend:** Next.js 14 (App Router), React, Tailwind CSS
+**Backend:** FastAPI, Python, SQLAlchemy, SQLite
+**External APIs:** TMDb (movie/cast/crew data + posters), Wikipedia (live biographical & historical context, CC BY-SA)
 
+---
 
-Then open `frontend/index.html` directly in your browser (or serve it: `python -m http.server 5500` inside `frontend/`).
+## Features
 
-## Why this stack (not the full spec's stack)
-The original spec calls for Next.js, Elasticsearch, Redis, Celery, Docker, etc. That's the right *end state* for a production platform, but it's overkill to start with on a free-tier budget. This skeleton uses SQLite + plain HTML/JS so you can see it running immediately with zero build tooling. Everything is structured (SQLAlchemy models, REST API, clean JS fetch calls) so migrating to Postgres + Next.js later is a drop-in swap, not a rewrite.
+- **150 curated films** — 110 influential Hindi films, 9 hand-entered silent-era films (pre-dating TMDb), 10 Kannada, 10 Bengali, and 10 Telugu films, each researched rather than pulled by popularity
+- **People, Studios, Awards & Film Festivals** — real cast/crew with photos, production houses, and festival selections, all cross-linked to films
+- **Live Wikipedia integration** — movie, person, and studio pages pull real biographical/historical summaries at request time, with proper CC BY-SA attribution
+- **Global search** — live dropdown search across movies and people from any page
+- **Box Office page** — the real all-time highest-grossing Indian films table, plus archive-specific rankings
+- **Daily-rotating trivia** — 100 trivia cards, 10 shown per day, deterministic rotation (not random)
+- **Timeline** — a curated, captioned, photo-illustrated walk through cinema milestones
+- **History page** — long-form narrative across 8 eras (Silent Era → OTT Revolution), each with a real photo
+- **Atmospheric homepage** — designed as a museum exhibit sequence, not a navigation dashboard
 
-## Next phases (4-8)
-4. Auth (JWT) + admin panel for adding/editing movies & people
-5. Box office dashboards (Chart.js/D3) — budget vs revenue, inflation-adjusted
-6. Interactive timeline (1913–present) + history section
-7. AI-powered natural language search (embeddings + LLM)
-8. Deployment: Postgres migration, Docker, SEO/accessibility pass
+---
 
-Ask for any of these next, one at a time, to keep responses efficient.
+## Project Structure
