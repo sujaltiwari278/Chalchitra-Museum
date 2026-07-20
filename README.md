@@ -1,18 +1,18 @@
 # The Heritage of Indian Cinema — Phases 1–3
 
 ## What's built
-- **Phase 1 (Backend):** FastAPI + SQLAlchemy + SQLite. Models: `Movie`, `Person`, many-to-many cast/crew.
+- **Phase 1 (Backend):** FastAPI + SQLAlchemy + SQLite. Models: Movie, Person, many-to-many cast/crew.
 - **Phase 2 (Frontend):** Plain HTML/CSS/JS (no build step needed). Heritage museum theme — maroon/gold/ivory, serif typography. Home, Movie list, Movie detail pages.
-- **Phase 3 (Search & Data):** `/api/search`, language/era filters, seed script with 9 real sample movies spanning Silent Era → OTT Revolution.
+- **Phase 3 (Search & Data):** /api/search, language/era filters, seed script with 9 real sample movies spanning Silent Era → OTT Revolution.
 
 ## Run it
 
-```bash
+
 cd backend
 pip install -r requirements.txt
 python seed.py          # creates cinema.db with sample movies
 uvicorn main:app --reload --port 8000
-```
+
 
 Then open `frontend/index.html` directly in your browser (or serve it: `python -m http.server 5500` inside `frontend/`).
 
