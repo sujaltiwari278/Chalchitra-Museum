@@ -8,7 +8,8 @@ async function fetchSummary(title) {
     const data = await res.json();
     if (data.type === "disambiguation" || !data.extract) return null;
     return data;
-  } catch {
+  } catch (err) {
+    console.error("[wikipedia] fetchSummary failed for", title, "-", err.message);
     return null;
   }
 }
@@ -28,7 +29,8 @@ async function searchFallback(query) {
       return null; // not actually the same subject, skip rather than show wrong content
     }
     return await fetchSummary(first.title);
-  } catch {
+  } catch (err) {
+    console.error("[wikipedia] searchFallback failed for", query, "-", err.message);
     return null;
   }
 }
@@ -53,7 +55,8 @@ export async function getWikipediaFullExtract(title) {
     const cut = text.slice(0, 4000);
     const lastPeriod = cut.lastIndexOf(". ");
     return ((lastPeriod > 500 ? cut.slice(0, lastPeriod + 1) : cut) + " …").trim();
-  } catch {
+  } catch (err) {
+    console.error("[wikipedia] getWikipediaFullExtract failed for", title, "-", err.message);
     return null;
   }
 }

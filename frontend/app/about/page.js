@@ -1,6 +1,7 @@
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
       <p className="font-cinzel text-xs tracking-[4px] text-bronze mb-3">ABOUT THE MUSEUM</p>
       <h1 className="font-display text-5xl mb-8">Chalchitra Museum</h1>
 

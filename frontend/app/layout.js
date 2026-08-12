@@ -30,8 +30,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${playfair.variable} ${cormorant.variable} ${cinzel.variable} font-body`}
       >
+        <div className="film-grain" />
         <Nav />
+        <div className="filmstrip" />
         {children}
+        <div className="filmstrip" />
         <Footer />
       </body>
     </html>

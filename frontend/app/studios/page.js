@@ -6,7 +6,8 @@ export default async function StudiosPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="font-display text-4xl mb-2">Studios & Production Houses</h1>
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <h1 className="font-display text-4xl mb-2 text-brown">Studios & Production Houses</h1>
       <p className="text-bronze mb-10">The studios that built Indian cinema.</p>
 
       {studios.length === 0 ? (
@@ -17,9 +18,9 @@ export default async function StudiosPage() {
             <Link
               key={s.id}
               href={`/studios/${s.id}`}
-              className="bg-[#fffdf8] border border-sandstone p-6 hover:border-gold transition"
+              className="group bg-[#fffdf8] border border-sandstone hover:border-marquee hover:shadow-[0_0_18px_rgba(242,167,27,0.3)] p-6 transition-all"
             >
-              <div className="font-display text-2xl">{s.name}</div>
+              <div className="font-display text-2xl group-hover:text-crimson transition-colors">{s.name}</div>
               <div className="text-bronze">Founded {s.founded_year}</div>
             </Link>
           ))}

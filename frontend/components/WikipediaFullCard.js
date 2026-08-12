@@ -29,11 +29,11 @@ export default function WikipediaFullCard({ text, url }) {
   if (!text) return null;
   return (
     <div className="mt-6 bg-[#fffdf8] border border-sandstone p-6">
-      <div className="font-cinzel text-xs text-gold tracking-widest mb-4">FULL DESCRIPTION — WIKIPEDIA</div>
+      <div className="font-cinzel text-xs text-marquee tracking-widest mb-4">FULL DESCRIPTION — WIKIPEDIA</div>
       <div>{renderExtract(text)}</div>
       {url && (
         <a href={url} target="_blank" rel="noopener noreferrer"
-           className="inline-block mt-4 text-xs text-bronze underline hover:text-gold">
+           className="inline-block mt-4 text-xs text-bronze underline hover:text-marquee">
           Source: Wikipedia — CC BY-SA 4.0
         </a>
       )}

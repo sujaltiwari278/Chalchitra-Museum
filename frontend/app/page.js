@@ -8,11 +8,12 @@ export default async function Home() {
 
   return (
     <>
-      <section className="relative min-h-[50vh] flex items-center justify-center bg-[#161008] text-ivory text-center px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(201,162,75,0.15),transparent_65%)]" />
+      <section className="spotlight-glow relative min-h-[55vh] flex items-center justify-center curtain-gradient text-ivory text-center px-6 overflow-hidden">
+        <div className="absolute top-10 left-10 text-5xl opacity-10 animate-spin-slow">🎞</div>
+        <div className="absolute bottom-10 right-10 text-5xl opacity-10 animate-spin-slow">🎞</div>
         <div className="relative max-w-xl">
-          <div className="w-2 h-2 rounded-full bg-gold mx-auto mb-8 animate-pulse" />
-          <p className="font-cinzel text-xs tracking-[8px] text-gold mb-6">CHALCHITRA MUSEUM</p>
+          <div className="w-2 h-2 rounded-full bg-marquee mx-auto mb-8 animate-pulse shadow-[0_0_16px_4px_rgba(242,167,27,0.5)]" />
+          <p className="font-cinzel text-xs tracking-[8px] text-marquee mb-6">CHALCHITRA MUSEUM</p>
           <p className="font-display text-3xl leading-relaxed text-sandstone mb-4">
             You are standing at the entrance of a century.
           </p>
@@ -26,6 +27,7 @@ export default async function Home() {
 
       <section className="bg-[#f6efe1] px-2 py-20">
         <div className="max-w-2xl mx-auto">
+          <div className="w-10 h-[3px] bg-crimson mb-4" />
           <p className="font-cinzel text-xs tracking-[4px] text-bronze mb-3">HALL I &middot; 1913 &middot; EXHIBIT No. 001</p>
           <h2 className="font-display text-4xl mb-6 text-brown">Before there was sound</h2>
           <p className="text-lg leading-relaxed text-brown/90 mb-5">
@@ -52,12 +54,12 @@ export default async function Home() {
 
 
       {fact && (
-        <section className="bg-maroon text-ivory px-2 py-20">
-          <div className="max-w-xl mx-auto border border-gold/50 p-10 text-center">
-            <p className="font-cinzel text-xs tracking-[4px] text-gold mb-4">FROM THE ARCHIVE CASE</p>
+        <section className="marquee-lights spotlight-glow relative curtain-gradient text-ivory px-2 py-20">
+          <div className="max-w-xl mx-auto border border-gold/50 p-10 text-center bg-black/20 backdrop-blur-sm">
+            <p className="font-cinzel text-xs tracking-[4px] text-marquee mb-4">FROM THE ARCHIVE CASE</p>
             <p className="font-display text-2xl leading-relaxed mb-4">{fact.fact}</p>
             {fact.movie_title && (
-              <Link href={`/movies/${fact.movie_id}`} className="text-sandstone text-sm underline hover:text-gold">
+              <Link href={`/movies/${fact.movie_id}`} className="text-sandstone text-sm underline hover:text-marquee transition">
                 {fact.movie_title}
               </Link>
             )}
@@ -70,6 +72,7 @@ export default async function Home() {
 
       <section className="bg-[#f6efe1] px-6 py-20">
         <div className="max-w-2xl mx-auto">
+          <div className="w-10 h-[3px] bg-teal mb-4" />
           <p className="font-cinzel text-xs tracking-[4px] text-bronze mb-3">HALL II &middot; THE CUSTODIANS &middot; EXHIBIT No. 014</p>
           <h2 className="font-display text-4xl mb-6 text-brown">The faces behind the frame</h2>
           <p className="text-lg leading-relaxed text-brown/90 mb-5">
@@ -91,8 +94,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="bg-brown text-ivory px-6 py-20 text-center">
-        <p className="font-cinzel text-xs tracking-[4px] text-gold mb-6">HALL III &middot; THE COLLECTION</p>
+      <section className="marquee-lights spotlight-glow relative curtain-gradient text-ivory px-6 py-24 text-center overflow-hidden">
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 text-4xl opacity-20">🎬</div>
+        <p className="font-cinzel text-xs tracking-[4px] text-marquee mb-6 mt-6">HALL III &middot; THE COLLECTION</p>
         <p className="font-display text-4xl leading-relaxed max-w-2xl mx-auto mb-6">
           Five languages. Six eras. One hundred and fifty films,
           each one somebody's entire career.
@@ -102,7 +106,7 @@ export default async function Home() {
           Others were seen by almost no one, and are remembered only because
           this archive refused to let them go.
         </p>
-        <Link href="/movies" className="font-cinzel text-sm border-b border-gold/60 hover:border-gold">
+        <Link href="/movies" className="marquee-chip inline-block px-6 py-3 font-cinzel text-sm border border-gold/60 hover:bg-gold hover:text-maroon transition rounded-sm">
           Browse the full collection →
         </Link>
       </section>
@@ -111,11 +115,24 @@ export default async function Home() {
         <div className="max-w-md mx-auto text-center">
           <p className="font-cinzel text-xs tracking-[4px] text-bronze mb-6">BEFORE YOU LEAVE</p>
           <p className="text-brown/70 mb-6 italic">A few more wings, if you have the time.</p>
-          <div className="flex flex-col gap-3 font-display text-xl text-brown">
-            <Link href="/timeline" className="hover:text-maroon">The Timeline Room</Link>
-            <Link href="/studios" className="hover:text-maroon">The Studio Archives</Link>
-            <Link href="/trivia" className="hover:text-maroon">The Trivia Cabinet</Link>
-            <Link href="/collections" className="hover:text-maroon">Curated Collections</Link>
+          <div className="flex flex-col gap-3">
+            {[
+              ["The Timeline Room", "/timeline"],
+              ["The Studio Archives", "/studios"],
+              ["The Trivia Cabinet", "/trivia"],
+              ["Curated Collections", "/collections"],
+            ].map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                className="group flex items-center justify-between border border-bronze/30 hover:border-crimson bg-white/40 hover:bg-white px-5 py-3 transition"
+              >
+                <span className="font-display text-xl text-brown group-hover:text-crimson transition">
+                  {label}
+                </span>
+                <span className="text-bronze group-hover:text-crimson transition">🎟</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

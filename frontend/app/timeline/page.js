@@ -37,24 +37,25 @@ export default async function TimelinePage() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
-      <h1 className="font-display text-4xl mb-2">Timeline of Indian Cinema</h1>
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <h1 className="font-display text-4xl mb-2 text-brown">Timeline of Indian Cinema</h1>
       <p className="text-bronze mb-10">Generation-defining films, 1913 to present.</p>
 
-      <div className="border-l-2 border-gold ml-3">
+      <div className="marquee-lights border-l-2 border-gold ml-3 relative">
         {entries.map(({ movie, note }) => (
           <Link
             key={movie.id}
             href={`/movies/${movie.id}`}
             className="flex gap-5 relative pl-8 pb-10 group"
           >
-            <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-maroon border-2 border-gold group-hover:bg-gold" />
+            <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-maroon border-2 border-gold group-hover:bg-marquee group-hover:shadow-[0_0_12px_rgba(242,167,27,0.6)] transition" />
             {movie.poster_url && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={movie.poster_url} alt={movie.title} className="w-16 h-24 object-cover border border-sandstone flex-shrink-0" />
+              <img src={movie.poster_url} alt={movie.title} className="w-16 h-24 object-cover border border-sandstone group-hover:border-marquee transition flex-shrink-0" />
             )}
             <div>
-              <div className="font-cinzel text-gold text-sm">{movie.release_year}</div>
-              <div className="font-display text-2xl">{movie.title}</div>
+              <div className="font-cinzel text-crimson text-sm">{movie.release_year}</div>
+              <div className="font-display text-2xl group-hover:text-crimson transition-colors">{movie.title}</div>
               <div className="text-bronze">{note}</div>
             </div>
           </Link>

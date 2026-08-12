@@ -6,10 +6,11 @@ export default async function PeopleListPage({ eyebrow, title, intro, role, gend
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
-      <div className="font-cinzel text-gold text-xs tracking-widest mb-3">
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <div className="font-cinzel text-marquee text-xs tracking-widest mb-3">
         {eyebrow?.toUpperCase()}
       </div>
-      <h1 className="font-display text-4xl mb-2">{title}</h1>
+      <h1 className="font-display text-4xl mb-2 text-brown">{title}</h1>
       <p className="text-bronze mb-10">{intro}</p>
 
       {people.length === 0 ? (

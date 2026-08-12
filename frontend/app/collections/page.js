@@ -42,7 +42,8 @@ export default async function CollectionsPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="font-display text-4xl mb-2">Collections</h1>
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <h1 className="font-display text-4xl mb-2 text-brown">Collections</h1>
       <p className="text-bronze mb-12">
         Curated groupings through Indian cinema's eras, languages, and movements.
       </p>
@@ -50,7 +51,7 @@ export default async function CollectionsPage() {
       <div className="space-y-14">
         {collections.map((c) => (
           <div key={c.title}>
-            <h2 className="font-display text-2xl mb-1">{c.title}</h2>
+            <h2 className="font-display text-2xl mb-1 text-maroon">{c.title}</h2>
             <p className="text-bronze mb-5">{c.description}</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {c.movies.map((m) => (

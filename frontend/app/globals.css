@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 body {
-  background-color: #f6efe1;
-  color: #3a2317;
+  background-color: #f5ecd8;
+  color: #2e1f12;
 }
 
 .tag {
   display: inline-block;
-  background: #5c1a1b;
-  color: #c9a24b;
+  background: #7a1220;
+  color: #f2a71b;
+  border: 1px solid rgba(242, 167, 27, 0.4);
   padding: 4px 12px;
   font-size: 13px;
   font-family: var(--font-cinzel), serif;
@@ -42,3 +43,99 @@ body {
   to { transform: rotate(360deg); }
 }
 .animate-spin-slow { animation: spinSlow 40s linear infinite; }
+
+/* =========================
+   CINEMATIC MOTIF TOOLKIT
+========================= */
+
+/* String of glowing marquee bulbs along an edge */
+.marquee-lights {
+  position: relative;
+}
+
+.marquee-lights::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 6px;
+  background-image: radial-gradient(
+    circle,
+    #f2a71b 0 2.5px,
+    rgba(242, 167, 27, 0.15) 3px,
+    transparent 4px
+  );
+  background-size: 22px 6px;
+  background-repeat: repeat-x;
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.55; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.5); }
+}
+
+/* Radial spotlight wash, layer behind hero content */
+.spotlight-glow {
+  position: relative;
+}
+
+.spotlight-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 20%,
+    rgba(255, 230, 167, 0.22),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Film strip sprocket-hole edge, use on a thin div */
+.filmstrip {
+  height: 18px;
+  background-color: #14163a;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #f5ecd8 0 10px,
+    transparent 10px 24px
+  );
+  background-position: center;
+  background-size: 24px 10px;
+  background-repeat: repeat-x;
+}
+
+/* Velvet curtain gradient for deep hero backgrounds */
+.curtain-gradient {
+  background: radial-gradient(
+      ellipse 80% 60% at 50% -10%,
+      rgba(193, 39, 45, 0.35),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #14163a 0%, #3d1420 55%, #14163a 100%);
+}
+
+/* Subtle animated film-grain overlay for the whole page */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Gold marquee-style bordered chip/button */
+.marquee-chip {
+  border: 1px solid rgba(242, 167, 27, 0.55);
+  box-shadow: 0 0 0 1px rgba(242, 167, 27, 0.12) inset,
+    0 0 18px rgba(242, 167, 27, 0.12);
+}
+
+.marquee-chip:hover {
+  box-shadow: 0 0 0 1px rgba(242, 167, 27, 0.25) inset,
+    0 0 26px rgba(242, 167, 27, 0.32);
+}

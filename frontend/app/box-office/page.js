@@ -65,14 +65,15 @@ export default async function BoxOfficePage() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
-      <h1 className="font-display text-4xl mb-2">Box Office</h1>
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <h1 className="font-display text-4xl mb-2 text-brown">Box Office</h1>
       <p className="text-bronze mb-10">
         All-time highest-grossing Indian films, worldwide gross.
       </p>
 
       <table className="w-full bg-[#fffdf8] border border-sandstone mb-3">
         <thead>
-          <tr className="font-cinzel text-sm text-bronze border-b border-sandstone">
+          <tr className="font-cinzel text-sm text-marquee bg-maroon border-b border-gold/40">
             <th className="text-left p-4">Rank</th>
             <th className="text-left p-4">Title</th>
             <th className="text-left p-4">Worldwide Gross</th>
@@ -85,9 +86,9 @@ export default async function BoxOfficePage() {
           {TOP_GROSSING.map((movie) => (
             <tr
               key={movie.rank}
-              className="border-b border-sandstone/50 hover:bg-amber-50 transition"
+              className="border-b border-sandstone/50 hover:bg-marquee/10 transition"
             >
-              <td className="p-4">{movie.rank}</td>
+              <td className="p-4 text-crimson font-cinzel">{movie.rank}</td>
               <td className="p-4 font-display text-lg">{movie.title}</td>
               <td className="p-4">{movie.gross}</td>
               <td className="p-4">{movie.language}</td>
@@ -101,7 +102,7 @@ export default async function BoxOfficePage() {
         href="https://en.wikipedia.org/wiki/List_of_highest-grossing_Indian_films"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-xs text-bronze underline hover:text-gold"
+        className="text-xs text-bronze underline hover:text-marquee transition"
       >
         Source: Wikipedia — CC BY-SA 4.0
       </a>

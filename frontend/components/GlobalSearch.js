@@ -35,14 +35,14 @@ export default function GlobalSearch() {
         onChange={(e) => setQ(e.target.value)}
         onFocus={() => setFocused(true)}
         placeholder="Search movies, actors, directors..."
-        className="w-full bg-brown/40 border border-gold/40 text-ivory placeholder-ivory/50 px-4 py-2 font-body focus:outline-none focus:border-gold"
+        className="w-full bg-brown/40 border border-gold/40 text-ivory placeholder-ivory/50 px-4 py-2 font-body focus:outline-none focus:border-marquee focus:shadow-[0_0_12px_rgba(242,167,27,0.35)] transition-shadow"
       />
       {focused && q.trim() && (
         <div className="absolute top-full left-0 right-0 mt-1 bg-[#fffdf8] border border-sandstone text-brown shadow-lg max-h-96 overflow-y-auto z-50">
           {!hasResults && <div className="p-4 text-bronze">No results.</div>}
           {results?.movies?.length > 0 && (
             <div>
-              <div className="font-cinzel text-xs text-bronze px-4 pt-3 pb-1 tracking-widest">MOVIES</div>
+              <div className="font-cinzel text-xs text-crimson px-4 pt-3 pb-1 tracking-widest">MOVIES</div>
               {results.movies.map((m) => (
                 <Link
                   key={m.id}
@@ -57,7 +57,7 @@ export default function GlobalSearch() {
           )}
           {results?.people?.length > 0 && (
             <div>
-              <div className="font-cinzel text-xs text-bronze px-4 pt-3 pb-1 tracking-widest">PEOPLE</div>
+              <div className="font-cinzel text-xs text-magenta px-4 pt-3 pb-1 tracking-widest">PEOPLE</div>
               {results.people.map((p) => (
                 <Link
                   key={p.id}

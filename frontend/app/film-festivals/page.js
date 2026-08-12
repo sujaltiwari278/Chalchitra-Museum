@@ -6,7 +6,8 @@ export default async function FestivalsPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="font-display text-4xl mb-2">Film Festivals</h1>
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <h1 className="font-display text-4xl mb-2 text-brown">Film Festivals</h1>
       <p className="text-bronze mb-10">
         Indian and international festivals that showcase Indian cinema.
       </p>
@@ -19,9 +20,9 @@ export default async function FestivalsPage() {
             <Link
               key={f.id}
               href={`/film-festivals/${f.id}`}
-              className="bg-[#fffdf8] border border-sandstone p-6 hover:border-gold transition"
+              className="group bg-[#fffdf8] border border-sandstone hover:border-marquee hover:shadow-[0_0_18px_rgba(242,167,27,0.3)] p-6 transition-all"
             >
-              <div className="font-display text-2xl">{f.name}</div>
+              <div className="font-display text-2xl group-hover:text-crimson transition-colors">{f.name}</div>
               <div className="text-bronze">{f.location} &middot; Founded {f.founded_year}</div>
             </Link>
           ))}

@@ -85,8 +85,9 @@ export default async function HistoryPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
-      <div className="font-cinzel text-gold text-xs tracking-widest mb-3">1913 – PRESENT</div>
-      <h1 className="font-display text-5xl mb-4">History of Indian Cinema</h1>
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <div className="font-cinzel text-marquee text-xs tracking-widest mb-3">1913 – PRESENT</div>
+      <h1 className="font-display text-5xl mb-4 text-brown">History of Indian Cinema</h1>
       <p className="text-xl text-bronze mb-14 leading-relaxed">
         A century of gods on screen, songs that outlived their films, and an industry
         that kept reinventing what it meant to tell a story in India.
@@ -95,8 +96,8 @@ export default async function HistoryPage() {
       <div className="space-y-16">
         {eraData.map((era) => (
           <div key={era.title}>
-            <div className="font-cinzel text-gold text-xs tracking-widest mb-2">{era.range}</div>
-            <h2 className="font-display text-3xl mb-6">{era.title}</h2>
+            <div className="font-cinzel text-crimson text-xs tracking-widest mb-2">{era.range}</div>
+            <h2 className="font-display text-3xl mb-6 text-maroon">{era.title}</h2>
 
             {era.wiki?.thumbnail?.source && (
               <div className="float-right ml-8 mb-4 w-64">
@@ -104,7 +105,7 @@ export default async function HistoryPage() {
                 <img
                   src={era.wiki.thumbnail.source}
                   alt={era.wikiTopic}
-                  className="w-full h-72 object-cover border border-sandstone"
+                  className="w-full h-72 object-cover border border-gold/40 shadow-[0_0_20px_rgba(0,0,0,0.15)]"
                 />
                 <p className="text-xs text-bronze mt-1">{era.wikiTopic} — Wikipedia, CC BY-SA</p>
               </div>

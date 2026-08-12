@@ -29,7 +29,8 @@ export default function TriviaPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="font-display text-4xl mb-2">Trivia</h1>
+      <div className="w-10 h-[3px] bg-crimson mb-4" />
+      <h1 className="font-display text-4xl mb-2 text-brown">Trivia</h1>
       <p className="text-bronze mb-2">
         Rare facts, production stories, and hidden details from Indian cinema.
       </p>
@@ -43,7 +44,7 @@ export default function TriviaPage() {
       <div className="flex gap-3 mb-10 flex-wrap">
         <button
           onClick={() => setCategory("")}
-          className={`font-cinzel text-xs px-4 py-2 border ${category === "" ? "bg-maroon text-gold border-maroon" : "border-bronze text-bronze"}`}
+          className={`font-cinzel text-xs px-4 py-2 border transition ${category === "" ? "marquee-chip bg-maroon text-marquee border-gold" : "border-bronze text-bronze hover:border-marquee hover:text-marquee"}`}
         >
           ALL
         </button>
@@ -51,7 +52,7 @@ export default function TriviaPage() {
           <button
             key={c}
             onClick={() => setCategory(c)}
-            className={`font-cinzel text-xs px-4 py-2 border ${category === c ? "bg-maroon text-gold border-maroon" : "border-bronze text-bronze"}`}
+            className={`font-cinzel text-xs px-4 py-2 border transition ${category === c ? "marquee-chip bg-maroon text-marquee border-gold" : "border-bronze text-bronze hover:border-marquee hover:text-marquee"}`}
           >
             {c.toUpperCase()}
           </button>
@@ -63,7 +64,7 @@ export default function TriviaPage() {
           <p className="text-bronze">No trivia in this category yet.</p>
         ) : (
           cards.map((c) => (
-            <div key={c.id} className="bg-[#fffdf8] border border-sandstone p-6">
+            <div key={c.id} className="bg-[#fffdf8] border border-sandstone hover:border-marquee/50 transition p-6">
               <p className="text-lg leading-relaxed mb-2">{c.fact}</p>
               <div className="text-bronze text-sm">
                 {c.category}
@@ -71,7 +72,7 @@ export default function TriviaPage() {
                   <>
                     {" "}
                     &middot;{" "}
-                    <Link href={`/movies/${c.movie_id}`} className="underline hover:text-gold">
+                    <Link href={`/movies/${c.movie_id}`} className="underline hover:text-marquee transition">
                       {c.movie_title}
                     </Link>
                   </>

@@ -4,12 +4,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        maroon: "#5c1a1b",
-        gold: "#c9a24b",
-        ivory: "#f6efe1",
-        brown: "#3a2317",
-        bronze: "#8a6d3b",
-        sandstone: "#d8c39a",
+        maroon: "#7a1220",
+        gold: "#d99a1b",
+        ivory: "#f5ecd8",
+        brown: "#2e1f12",
+        bronze: "#9c6b2e",
+        sandstone: "#e3c98f",
+        crimson: "#c1272d",
+        marquee: "#f2a71b",
+        spotlight: "#ffdd8a",
+        magenta: "#d63384",
+        midnight: "#14163a",
+        teal: "#0f7b7b",
       },
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],
